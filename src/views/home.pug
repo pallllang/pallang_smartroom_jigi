@@ -1,13 +1,20 @@
 doctype html
 html(lang="ko")
   head
-    title Smart Room - Jigi
+    title 지기 SMART-ROOM
     // link(rel="stylesheet" href="https://unpkg.com/mvp.css")
     style.
+      @font-face {
+        font-family: 'SLEIGothicTTF';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/SLEIGothicTTF.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+      }
       *{
         box-sizing: border-box;
         margin: 0;
         padding: 0;
+        font-family: 'SLEIGothicTTF';
       }
       html, body {
         height: 100%;
@@ -15,11 +22,12 @@ html(lang="ko")
       }
 
       li, a, button, span {
-        font-size: 16px;
+        font-size: 25px;
         font-weight: 500;
         color: #edf0f1;
         text-decoration: none;
       }
+
       .homeNav {
         display: flex;
         justify-content: space-between;
@@ -79,8 +87,8 @@ html(lang="ko")
       }
       .homeMain article {
         width: 50%;
-        max-width: 600px;
-        height: 500px;
+        max-width: 500px;
+        height: 450px;
         margin: 50px;
         border-radius: 40px;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -93,7 +101,7 @@ html(lang="ko")
         align-items: center;
       }
       .roomCnt div:first-child, .isDoor div:first-child{
-        height: 15%;
+        height: 25%;
         width: 100%;
         border-bottom: 7px solid black;
         display: flex;
@@ -102,11 +110,9 @@ html(lang="ko")
       }
       .pers {
         font-size: 40px;
-        font-weight: bold;
       }
       .title {
-        font-size: 20px;
-        font-weight: bold;
+        font-size: 25px;
       }
   body
     nav.homeNav
@@ -115,24 +121,24 @@ html(lang="ko")
         li 
           a(href="/") 과방 Status
         li 
-          a(href="/") 과방 예약
+          a(href="/") 과방 예약(개발 중)
         li
-          a(href="/") Alert 알림
-      a.cta(href="#")
-        button Contact
+          a(href="http://pallangsmartroom.iptime.org:2017/") 아두이노 페이지
+      a.cta(href="/")
+        button Reload
     header.homeHeader 
       div 
         span 과방 Status
     main.homeMain
       article.roomCnt
         div 
-          span.title how many people in this room?
+          span.title 현재 과방 인원 수
         div 
           span.pers=person
         div.space
       article.isDoor
         div 
-          span.title Is door open?
+          span.title 문 열림/닫힘 여부
         div 
           span.pers=door
         div.space

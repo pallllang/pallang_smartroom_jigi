@@ -1,0 +1,80 @@
+extends base.pug
+
+block style 
+  style.
+          .homeHeader{
+        height: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .homeHeader div{
+        margin-top: 30px;
+      }
+      .homeHeader div span{
+
+        font-size: 50px;
+        font-weight: Bold;
+      }
+      .homeMain {
+        height: 80%;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+      }
+      .homeMain article {
+        width: 50%;
+        max-width: 500px;
+        height: 450px;
+        margin: 50px;
+        border-radius: 40px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
+      .roomCnt, .isDoor {
+        background-color: rgba(0, 136, 169, 1);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .roomCnt div:first-child, .isDoor div:first-child{
+        height: 25%;
+        width: 100%;
+        border-bottom: 7px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .pers {
+        font-size: 40px;
+      }
+      .title {
+        font-size: 25px;
+      }
+
+block btn
+  a.cta(href="/")
+    button Login 
+block header 
+  header.homeHeader 
+      div 
+        span 과방 Status
+
+block main
+    main.homeMain
+      article.roomCnt
+        div 
+          span.title 현재 과방 인원 수
+        div 
+          span.pers=person
+        div.space
+      article.isDoor
+        div 
+          span.title 문 열림/닫힘 여부
+        div 
+          span.pers=door
+        div.space
+    
+    
+
+

@@ -1,4 +1,5 @@
 extends base.pug
+include mixinBook.pug
 
 block style 
   style.
@@ -52,29 +53,19 @@ block style
         font-size: 25px;
       }
 
+
 block btn
-  a.cta(href="/")
-    button Login 
+  a.cta(href="/book/upload")
+    button Upload 
+  
+
 block header 
   header.homeHeader 
+    div 
+      span 예약 게시판
+  main.bookMain
+    each book in books 
+      +book(book)
+    else
       div 
-        span 과방 Status
-
-block main
-    main.homeMain
-      article.roomCnt
-        div 
-          span.title 현재 과방 인원 수
-        div 
-          span.pers=person
-        div.space
-      article.isDoor
-        div 
-          span.title 문 열림/닫힘 여부
-        div 
-          span.pers=door
-        div.space
-    
-    
-
-
+        span 현재 예약이 없습니다!

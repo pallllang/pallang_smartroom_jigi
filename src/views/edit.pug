@@ -1,0 +1,79 @@
+extends base.pug
+block style 
+  style.
+    .homeHeader{
+        height: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .homeHeader div{
+        margin-top: 30px;
+      }
+      .homeHeader div span{
+
+        font-size: 50px;
+        font-weight: Bold;
+      }
+    .uploadMain {
+        height: 80%;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+    .uploadForm{
+      background-color: rgba(0, 136, 169, 1);
+      width: 50%;
+      max-width: 500px;
+      height: 450px;
+      margin: 50px;
+      border-radius: 40px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .uploadForm input {
+      font-size: 20px;
+      margin: 20px 0px;
+      width: 65%;
+      height: 10%;
+      background-color: inherit;
+      color: white;
+      border: none;
+      border-bottom: 3px solid black;
+    }
+
+    .uploadForm input::placeholder {
+      text-align: center;
+      color: white;
+      opacity: 0.8;
+    }
+    .uploadForm input:last-child {
+      margin-top: 40px;
+      width: 40%;
+      height: 10%;
+
+      border: 3px solid black;
+      border-radius: 10px;
+    }
+
+
+block btn
+  a.cta(href="/book/upload")
+    button Upload 
+block header
+  header.homeHeader 
+      div 
+        span Edit
+block main 
+  main.uploadMain
+    if errorMessage 
+      span=errorMessage
+    form(method="POST", class="uploadForm")
+      input( name="date", placeholder="날짜를 20020508 형식으로 작성하세요.", required, type="text", maxlength=80 class="date" value=book.date)
+      input( name="time", placeholder="시간을 12:00-13:00 형식으로 작성하세요.", required, type="text", minlength=8, class="time" value=book.time)
+      input( name="student", placeholder="학번을 작성하세요", required, type="text", class="student" value=book.student)
+      input(type="submit", value="예약하기")

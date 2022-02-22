@@ -1,5 +1,5 @@
 import express from "express";
-import { home } from "../controllers/rootController";
+import { home, login } from "../controllers/rootController";
 const cheerio = require("cheerio");
 const request = require("request");
 
